@@ -13,14 +13,14 @@ export const getProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
     const product = req.body; //user will send the product in the body
 
-    if(!product.name || !product.price || !product.imageUrl) {
+    if(!product.name || !product.price || !product.image) {
       return res.status(400).json({success:false, message: 'Please fill in all fields' });
     }
     const newProduct = new Product({
         name: product.name,
         price: product.price,
-        imageUrl: product.imageUrl,
-    });
+        imageUrl: product.image,
+    }); // Assuming your Product model still uses 'imageUrl' as the field name
     try {
         const savedProduct = await newProduct.save();
         res.status(201).json({success:true, data: savedProduct });

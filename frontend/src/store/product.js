@@ -12,6 +12,7 @@ const useProductStore = create((set) => ({
 			headers: {
 				"Content-Type": "application/json",
 			},
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:746904583.
 			body: JSON.stringify(newProduct),
 		});
 		const data = await res.json();
